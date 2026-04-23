@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SpeedTest from "@/components/SpeedTest";
@@ -16,18 +16,20 @@ const parseKeywordFromUrl = (keyword) => {
 const KeywordDetail = () => {
   const { keyword } = useParams();
   const decodedKeyword = parseKeywordFromUrl(keyword);
+  // Ensure canonical URL ends with .html
+  const canonicalHref = keyword.endsWith('.html') ? `https://interentspeedtest.com/${keyword}` : `https://interentspeedtest.com/${keyword}.html`;
 
   return (
     <div className="flex min-h-screen flex-col">
       <Helmet>
-        <title>{`${decodedKeyword} Speed Test Guide - Internet Speed Test Tool`}</title>
-        <meta name="description" content={`Comprehensive guide about ${decodedKeyword}. Learn how to measure internet speed, understand performance metrics, and optimize your connection for better results.`} />
+        <title>{`${decodedKeyword} Speed Test Guide – Learn How to Measure, Interpret & Improve | Internet Speed Test`}</title>
+        <meta name="description" content={`Discover everything about ${decodedKeyword}. Our comprehensive guide explains how to perform accurate tests, understand download/upload speeds and latency, troubleshoot issues, and optimize your internet connection for better performance.`} />
         <meta name="author" content="Internet Speed Test" />
         <meta property="og:image" content="https://interentspeedtest.com/og-image.png" />
-        <meta property="og:title" content={`${decodedKeyword} Speed Test Guide - Internet Speed Test Tool`} />
-        <meta property="og:description" content={`Comprehensive guide about ${decodedKeyword}. Learn how to measure internet speed, understand performance metrics, and optimize your connection for better results.`} />
+        <meta property="og:title" content={`${decodedKeyword} Speed Test Guide – Learn How to Measure, Interpret & Improve | Internet Speed Test`} />
+        <meta property="og:description" content={`Discover everything about ${decodedKeyword}. Our comprehensive guide explains how to perform accurate tests, understand download/upload speeds and latency, troubleshoot issues, and optimize your internet connection.`} />
         <meta name="keywords" content={`${decodedKeyword}, internet speed test, bandwidth measurement, connection performance, download speed test, upload speed test, latency test, network diagnostics`} />
-        <link rel="canonical" href={`https://interentspeedtest.com/guide/${keyword}`} />
+        <link rel="canonical" href={canonicalHref} />
       </Helmet>
       <Header />
       <main className="container mx-auto p-6 flex-grow">
@@ -105,12 +107,33 @@ const KeywordDetail = () => {
             <li>Test multiple times at different times of the day to identify fluctuations.</li>
             <li>Choose a reliable {decodedKeyword} service like <a href="https://interentspeedtest.com" className="text-blue-500">InterentSpeedTest.com</a>.</li>
           </ul>
-        </section>
+         </section>
         
+        <section className="mb-6">
+          <h2 className="text-2xl font-semibold mb-2">Common Issues and Solutions</h2>
+          <ul className="list-disc pl-6">
+            <li><strong>Inconsistent results between tests</strong> – Run multiple tests and take the average. Ensure no other devices are using bandwidth during the test.</li>
+            <li><strong>Lower speeds than expected</strong> – Restart your router, check for interference, or try a wired connection. Contact your ISP if the problem persists.</li>
+            <li><strong>High ping or jitter</strong> – Choose a server closer to your location, close background apps, or upgrade your router for better QoS.</li>
+            <li><strong>Test stops unexpectedly</strong> – Make sure your browser is up to date, disable VPN temporarily, and ensure a stable connection.</li>
+          </ul>
+        </section>
+
+        <section className="mb-6">
+          <h2 className="text-2xl font-semibold mb-2">Frequently Asked Questions about {decodedKeyword}</h2>
+          <ul className="list-disc pl-6">
+            <li><strong>What exactly is {decodedKeyword}?</strong> {decodedKeyword} is a tool that measures your internet connection's performance, including download speed, upload speed, latency (ping), and jitter. It helps you verify if you're receiving the speeds your ISP promises.</li>
+            <li><strong>How accurate is {decodedKeyword}?</strong> Our {decodedKeyword} uses advanced algorithms and globally distributed servers to provide accurate measurements. For best accuracy, use a wired connection and close background applications.</li>
+            <li><strong>What factors can affect my {decodedKeyword} results?</strong> Several factors can impact your results, including network congestion, distance from the router, interference from other devices, outdated hardware, and ISP throttling during peak hours.</li>
+            <li><strong>How can I improve my {decodedKeyword} scores?</strong> Start by restarting your router and modem, using Ethernet instead of WiFi, upgrading your internet plan if needed, and ensuring your equipment is up to date. Also test at different times of the day to get a complete picture.</li>
+            <li><strong>Is {decodedKeyword} free to use?</strong> Yes, {decodedKeyword} is completely free. You can run unlimited speed tests without any registration or fees.</li>
+          </ul>
+        </section>
+
         <section className="mb-6">
           <h2 className="text-2xl font-semibold mb-2">Conclusion</h2>
           <p>
-          {decodedKeyword} are valuable tools for assessing your connection quality and troubleshooting performance issues.
+            {decodedKeyword} are valuable tools for assessing your connection quality and troubleshooting performance issues.
             Regularly testing and optimizing your internet can make a huge difference in speed and reliability.
           </p>
           <p>

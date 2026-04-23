@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { blogPosts } from '@/data/blogPosts';
+import { formatKeywordToUrl, formatBlogToUrl } from '@/lib/internalLinking';
 
 const Blog: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -88,7 +89,7 @@ const Blog: React.FC = () => {
                       {post.keywords.slice(0, 4).map((keyword, idx) => (
                         <Link 
                           key={idx} 
-                          to={`/keyword/${keyword.toLowerCase().replace(/\s+/g, '-')}.html`}
+                          to={formatKeywordToUrl(keyword)}
                           className="text-xs px-2 py-1 bg-blue-50 text-blue-600 rounded-full hover:bg-blue-100 transition-colors"
                         >
                           {keyword}

@@ -7327,9 +7327,10 @@ const keywords = [
   "testear en español",
   "wifi on phone slow",
   "rapid pay apk",
-  "faster slow",
-  "netflix picture in picture iphone",
-  ];
+   "faster slow",
+   "netflix picture in picture iphone",
+   "ookla speedtest",
+   ];
   
 export default keywords;
   
