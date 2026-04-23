@@ -10,7 +10,7 @@ import keywords from '@/data/keywords';
 
 // Format a keyword to a URL slug
 export const formatKeywordToUrl = (keyword: string): string => {
-  return `/keyword/${keyword.toLowerCase().replace(/\s+/g, '-')}.html`;
+  return `/${keyword.toLowerCase().replace(/\s+/g, '-')}.html`;
 };
 
 // Format a blog slug to a URL

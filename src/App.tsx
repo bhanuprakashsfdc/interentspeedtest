@@ -4,16 +4,19 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async';
+
 import Index from "@/pages/Index";
 import NotFound from "@/pages/NotFound";
 import AboutUs from "@/pages/AboutUs";
 import Contact from "@/pages/Contact";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsConditions from "@/pages/TermsConditions";
-import KeywordDetail from "@/components/KeywordList";
-import SEO from "@/pages/SEO";
 import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
+import InternetSpeedTestPage from "@/pages/InternetSpeedTestPage";
+import OoklaSpeedtestPage from "@/pages/OoklaSpeedtestPage";
+import UploadLatencyTestPage from "@/pages/UploadLatencyTestPage";
+import KeywordDetail from "@/components/KeywordDetail";
 
 const queryClient = new QueryClient();
 
@@ -34,7 +37,10 @@ const App = () => (
             <Route path="/terms.html" element={<TermsConditions />} />
             <Route path="/blog.html" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
-            <Route path="/:keyword" element={<SEO />} /> 
+            <Route path="/internet-speed-test.html" element={<InternetSpeedTestPage />} />
+            <Route path="/ookla-speedtest.html" element={<OoklaSpeedtestPage />} />
+            <Route path="/upload-latency-test.html" element={<UploadLatencyTestPage />} />
+            <Route path="/:keyword" element={<KeywordDetail />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

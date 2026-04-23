@@ -1,10 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import keywords from "@/data/keywords";
-
-const formatKeywordToUrl = (keyword: string) => {
-  return `/keyword/${keyword.toLowerCase().replace(/\s+/g, "-")}.html`;
-};
+import { formatKeywordToUrl } from "@/lib/internalLinking";
 
 const KeywordList: React.FC = () => {
   return (
